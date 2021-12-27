@@ -4,7 +4,7 @@
   "description": "api-node-redis",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jam0147/api-node-redis#readme",
   "dependencies": {
+    "axios": "^0.24.0",
     "express": "^4.17.2",
     "redis": "^4.0.1",
     "response-time": "^2.3.2"
