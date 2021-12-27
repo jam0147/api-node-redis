@@ -9,6 +9,8 @@ const client = redis.createClient({
     port: 6379
 });
 
+const PREFIX_CHR = 'chr_';
+
 client.connect();
 client.on('error', (err) => console.log('Redis Client Error', err));
 
@@ -24,6 +26,22 @@ app.get('/character', async (req, res) => {
             await axios.get('https://rickandmortyapi.com/api/character').then(r => {
                 client.set('characters', JSON.stringify(r.data)).then(dataRedis => {
                     return res.json(r.data);
+                });
+            });
+        }
+    }).catch(error => console.log(error));
+});
+
+app.get('/character/:id', async (req, res) => {
+    const character = PREFIX_CHR + req.params.id;
+
+    client.get(character).then( async data => {
+        if (data){
+            res.json(JSON.parse(data));
+        } else {
+            await axios.get(`https://rickandmortyapi.com/api/character/${req.params.id}`).then(r => {
+                client.set(character, JSON.stringify(r.data)).then(dataRedis => {
+                    res.json(r.data);
                 });
             });
         }
