@@ -1,0 +1,25 @@
+{
+  "name": "api-node-redis",
+  "version": "1.0.0",
+  "description": "api-node-redis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jam0147/api-node-redis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jam0147/api-node-redis/issues"
+  },
+  "homepage": "https://github.com/jam0147/api-node-redis#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "redis": "^4.0.1",
+    "response-time": "^2.3.2"
+  }
+}
